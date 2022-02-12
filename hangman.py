@@ -4,7 +4,7 @@ from words import words
 def create_blanks(word, guesses):
   a = []
   for i in word:
-    if guesses.__contains__(i):
+    if i in guesses:
       a.append(i)
     else:
       a.append("_")
@@ -26,8 +26,8 @@ def game():
     print(f'{display_hangman(tries)}')
     print(f'{res["res"]}')  
     guess = input("\nEnter a letter: ").upper()
-    if word.__contains__(guess):
-      if guesses.__contains__(guess):
+    if guess in word:
+      if guess in guesses:
         print("\nYou took that guess already\n")
       guesses.append(guess)
     else:
